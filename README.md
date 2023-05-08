@@ -1,6 +1,7 @@
 # MiniGames
 A game with many mini games.
 
+This first game is based on AI's that will roam around, collect food and try to avoid the obstacle rotating around.
 
 
 
