@@ -5,5 +5,5 @@ This first game is based on AI's that will roam around, collect food and try to 
 
 
 
-https://user-images.githubusercontent.com/65637580/236739409-cf6fe894-3ea5-4cec-b628-b84f5b1b4eed.mp4
 
+![Firedemo - Made with Clipchamp](https://user-images.githubusercontent.com/65637580/236869540-ab5a038b-22ee-497d-87a0-2e734fd49076.gif)
