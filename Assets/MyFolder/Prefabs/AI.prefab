@@ -1200,7 +1200,7 @@ Transform:
   - {fileID: 2464702098491331642}
   - {fileID: 3014917156811547613}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &3014917156885801595
 CapsuleCollider:
@@ -1279,9 +1279,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0efc21e622a0d4c4cac20101d69d276f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 15
-  centrePoint: {fileID: 3014917156885801594}
-  jump: 0
+  range: 21
+  centrePoint: {fileID: 0}
 --- !u!114 &3014917156885801592
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -42,6 +42,7 @@ public class AIRoaming : MonoBehaviour
                     }
                 }
             }
+            //checks if agent is stopped and sets the animation
             if (agent.isStopped)
                 anim.SetBool("IsWalking", false);
             else
@@ -57,7 +58,7 @@ public class AIRoaming : MonoBehaviour
         StartCoroutine(WaitForNextPoint());
     }
 
-
+    //Sets the center of a position, creates a sphere and returns a random point inside the sphere
     bool RandomPoint(Vector3 center, float range, out Vector3 result)
     {
         Vector3 randomPoint = center + Random.insideUnitSphere * range;
@@ -76,7 +77,11 @@ public class AIRoaming : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         if(agent.enabled)
             agent.isStopped = false;
+    }
 
-
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(centrePoint.position, range);
     }
 }
