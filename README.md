@@ -2,4 +2,7 @@
 A game with many mini games.
 
 
-![JumpingGame - Made with Clipchamp](https://user-images.githubusercontent.com/65637580/236739338-a626173a-9534-4b46-8e29-ec38205731c2.gif)
+
+
+https://user-images.githubusercontent.com/65637580/236739409-cf6fe894-3ea5-4cec-b628-b84f5b1b4eed.mp4
+
