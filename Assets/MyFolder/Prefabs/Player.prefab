@@ -1295,7 +1295,7 @@ Transform:
   m_Children:
   - {fileID: 700236615069788736}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &7957935152980124599
 CharacterController:
@@ -1373,6 +1373,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43d7cb39e8063d940afcdf90a2824c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpForce: 1000
+  blood: {fileID: 0}
   OnDeath:
     m_PersistentCalls:
       m_Calls:
@@ -1452,8 +1454,7 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
   playerObject: {fileID: 7957935152980124587}
-  jumpForce: 1000
-  blood: {fileID: 0}
+  orderNum: 0
 --- !u!114 &7957935152980124594
 MonoBehaviour:
   m_ObjectHideFlags: 0
