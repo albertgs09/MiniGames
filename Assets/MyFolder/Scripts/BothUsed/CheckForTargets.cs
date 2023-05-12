@@ -7,11 +7,12 @@ public class CheckForTargets : MonoBehaviour
     private Transform target;
     private float lesserDistance;
     private int currentTarget;
-    [Range(5f, 20f)]
+    [Range(2f, 20f)]
     [SerializeField] private float radius;
     [SerializeField] private LayerMask masks;
     [SerializeField] Collider[] targets;
 
+  
 
     public Transform CheckClosestTarget()
     {

@@ -12,7 +12,6 @@ public class Finished : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Players"))
         {
-            print("Finished!");
             timer.gameStart = false;
             winnerText.enabled = true ;
             winnerText.text = collision.gameObject.name + " Wins!";
