@@ -18,11 +18,16 @@ public class ApplyGravity : MonoBehaviour
     {
         if (winTextScript.winnerText.enabled)
             rb.useGravity = true;
+
+       
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.name == "Player")
             rb.useGravity = true;
+
+        Destroy(gameObject, 3f);
+
     }
 }
