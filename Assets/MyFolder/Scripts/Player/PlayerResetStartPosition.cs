@@ -17,7 +17,7 @@ public class PlayerResetStartPosition : MonoBehaviour
     {
         if (transform.position.y < -50)
         {
-            transform.position = new Vector3(0, 0.3f, 0);
+            transform.position = new Vector3(Random.Range(-1.6f, 1.6f), 1f, Random.Range(2.9f, 6.5f));
         }
     }
 }
