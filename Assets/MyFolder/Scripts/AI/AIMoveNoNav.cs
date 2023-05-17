@@ -11,23 +11,17 @@ public class AIMoveNoNav : MonoBehaviour
     [SerializeField] private LayerMask ground;
     private Vector3 direction;
     private Transform finishTarget, currentTarget;
-    [SerializeField] Collider[] targets;
     private float currentDist = 100;
     private int nearestIndx = 0;
     private GameObject currentLilypad;
     [SerializeField] private Transform eyes;
-    List<Collider> targetsList = new();
-    public string[] names = new string[2];
+    [SerializeField]List<Collider> targetsList = new();
+    private string name;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         finishTarget = GameObject.Find("FinishLine").transform;
         currentTarget = PickaTarget();
-    }
-
-    private void Update()
-    {
-        
     }
 
     // Update is called once per frame
@@ -56,41 +50,66 @@ public class AIMoveNoNav : MonoBehaviour
 
     Transform PickaTarget()
     {
-        Array.Clear(targets, 0, targets.Length);
         targetsList.Clear();
         currentDist = 100;
-        targets = Physics.OverlapSphere(transform.position, radius, ground);
-        targetsList = targets.ToList();
-
-        for (int i = 0; i < targetsList.Count; i++)
-        {
-            float distance = Vector3.Distance(targetsList[i].transform.position, finishTarget.position);
-            if (distance < currentDist)
+        targetsList = Physics.OverlapSphere(transform.position, radius, ground).ToList();
+        print(name);
+        if(name != currentLilypad.name)
+        { 
+            for (int i = 0; i < targetsList.Count; i++)
             {
-                currentDist = distance;
-                nearestIndx = i;
+                float distance = Vector3.Distance(targetsList[i].transform.position, finishTarget.position);
+                if (distance < currentDist)
+                {
+                    currentDist = distance;
+                    nearestIndx = i;
+                }
             }
-        }
-         if(nearestIndx >= targetsList.Count)
-        {
-            return null;
+            // if(nearestIndx >= targetsList.Count)
+            //{
+            //    return null;
+            //}
+            //else
+            //{
+            //    if (currentLilypad != null && targetsList[nearestIndx].name == currentLilypad.name)
+            //    {
+            //        if (nearestIndx != targetsList.Count)
+            //        {
+            //            print("plus");
+            //            return targetsList[nearestIndx + 1].transform;
+            //        }
+            //        else
+            //        {
+            //            print("random");
+            //            return targetsList[UnityEngine.Random.Range(0, targetsList.Count + 1)].transform;
+            //        }
+            //    }
+            //    else
+            //    {
+            //print("nearest");
+            //name = currentLilypad.name;
+            //return targetsList[nearestIndx].transform;
+            //    }
+            //}    
+            name = currentLilypad.name;
+            return targetsList[nearestIndx].transform;
         }
         else
         {
-            if (currentLilypad != null && targetsList[nearestIndx].name == currentLilypad.name)
+            for (int i = 0; i < targetsList.Count; i++)
             {
-                if (nearestIndx != targetsList.Count)
+                float distance = Vector3.Distance(targetsList[i].transform.position, finishTarget.position);
+                if (targetsList[i].name != name)
                 {
-                    return targetsList[nearestIndx + 1].transform;
+                    if (distance < currentDist)
+                    {
+                        currentDist = distance;
+                        nearestIndx = i;
+                    }
                 }
-                else
-                {
-                    return targetsList[UnityEngine.Random.Range(0, targetsList.Count + 1)].transform;
-                }
+               
             }
-            else
-                return targetsList[nearestIndx].transform;
-
+            return targetsList[nearestIndx].transform;
         }
     }
 
@@ -138,10 +157,5 @@ public class AIMoveNoNav : MonoBehaviour
     }
 
 
-    IEnumerator WaitTime()
-    {
-        print("Waiting");
-        yield return new WaitForSeconds(5);
-
-    }
+ 
 }
