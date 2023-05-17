@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class PlayerResetStartPosition : MonoBehaviour
 {
-    private Transform startingPos;
+   [SerializeField] private Transform startingPos;
 
     // Start is called before the first frame update
     void Start()
     {
-        startingPos = transform;     
     }
 
     // Update is called once per frame
@@ -17,7 +16,8 @@ public class PlayerResetStartPosition : MonoBehaviour
     {
         if (transform.position.y < -50)
         {
-            transform.position = new Vector3(Random.Range(-1.6f, 1.6f), 1f, Random.Range(2.9f, 6.5f));
+            //transform.position = new Vector3(Random.Range(-1.6f, 1.6f), 1f, Random.Range(2.9f, 6.5f));
+            transform.position = startingPos.position;
         }
     }
 }

@@ -17,6 +17,7 @@ public class AIMoveNoNav : MonoBehaviour
     private GameObject currentLilypad;
     [SerializeField] private Transform eyes;
     List<Collider> targetsList = new();
+    public string[] names = new string[2];
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -46,6 +47,7 @@ public class AIMoveNoNav : MonoBehaviour
 
         if (currentTarget == null) {
             currentTarget = PickaTarget();
+            direction = Vector3.zero;
         }
 
         DetectingWater();
@@ -62,7 +64,6 @@ public class AIMoveNoNav : MonoBehaviour
 
         for (int i = 0; i < targetsList.Count; i++)
         {
-            print(targetsList[i].name);
             float distance = Vector3.Distance(targetsList[i].transform.position, finishTarget.position);
             if (distance < currentDist)
             {
@@ -76,17 +77,15 @@ public class AIMoveNoNav : MonoBehaviour
         }
         else
         {
-            if (targetsList[nearestIndx].name == currentLilypad.name)
+            if (currentLilypad != null && targetsList[nearestIndx].name == currentLilypad.name)
             {
-                targetsList.RemoveAt(nearestIndx);
-                print("Getting new lily");
                 if (nearestIndx != targetsList.Count)
                 {
                     return targetsList[nearestIndx + 1].transform;
                 }
                 else
                 {
-                    return targetsList[nearestIndx].transform;
+                    return targetsList[UnityEngine.Random.Range(0, targetsList.Count + 1)].transform;
                 }
             }
             else
@@ -94,6 +93,8 @@ public class AIMoveNoNav : MonoBehaviour
 
         }
     }
+
+  
 
     private void OnDrawGizmosSelected()
     {
@@ -134,6 +135,13 @@ public class AIMoveNoNav : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         currentLilypad = collision.gameObject;
-        print(currentLilypad.name);
+    }
+
+
+    IEnumerator WaitTime()
+    {
+        print("Waiting");
+        yield return new WaitForSeconds(5);
+
     }
 }
