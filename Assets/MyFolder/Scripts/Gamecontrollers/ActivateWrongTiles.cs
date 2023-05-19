@@ -5,7 +5,7 @@ using UnityEngine;
 public class ActivateWrongTiles : MonoBehaviour
 {
     private List<GameObject> wrongTiles;
-    // Start is called before the first frame update
+    
     void Start()
     {
         foreach(Transform child in transform)
