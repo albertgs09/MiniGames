@@ -24,7 +24,7 @@ public class AIMoveNoNav : MonoBehaviour
         currentTarget = PickaTarget();
     }
 
-    // Update is called once per frame
+    
     void FixedUpdate()
     { 
         if(currentTarget != null)
@@ -130,7 +130,6 @@ public class AIMoveNoNav : MonoBehaviour
     void DetectingWater()
     {
         RaycastHit hit;
-        // Does the ray intersect any objects excluding the player layer
         if (Physics.Raycast(eyes.position, eyes.forward, out hit, 3f))
         {
             Debug.DrawRay(eyes.position, eyes.forward * 1000, Color.red);
