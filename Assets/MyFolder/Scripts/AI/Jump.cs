@@ -14,14 +14,14 @@ public class Jump : MonoBehaviour
     public UnityEvent OnBegin, OnDone;
     [SerializeField] private float jumpSpeed, jumpH,delay;
     [SerializeField] private LayerMask ground;
-    void Start()
+   private void Start()
     {
         jumpDir = new Vector3(0, jumpH, 0);
         rb = GetComponent<Rigidbody>();
     }
 
    
-    void Jumping()
+    private void Jumping()
     {
         StopAllCoroutines();
         OnBegin?.Invoke();
