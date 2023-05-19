@@ -5,7 +5,7 @@ using UnityEngine;
 public class ItemRandomizer : MonoBehaviour
 {
     public GameObject[] items;
-    // Start is called before the first frame update
+    
     void Start()
     {
         int randNum = Random.Range(0, items.Length);
